@@ -9,7 +9,17 @@
   <body>
     <header class="header" id="header">
       <div class="header__logo" aria-label="Logo">Logo</div>
-      <nav class="header__nav" aria-label="Main navigation">
+      <button
+        class="header__burger"
+        aria-label="Open navigation"
+        aria-controls="mainNav"
+        aria-expanded="false"
+      >
+        <span class="header__burger-bar"></span>
+        <span class="header__burger-bar"></span>
+        <span class="header__burger-bar"></span>
+      </button>
+      <nav class="header__nav" id="mainNav" aria-label="Main navigation">
         <a href="#skills" class="header__link">Skills</a>
         <a href="#projects" class="header__link">Projects</a>
         <a href="#resume" class="header__link">Resume</a>
@@ -24,7 +34,10 @@
         </div>
         <div class="intro-banner__bio">
           <h1>Intro Heading</h1>
-          <p>Iam a fresh computer science graduate from birzeit university with strong intrest in quality assurance </p>
+          <p>
+            Iam a fresh computer science graduate from birzeit university with
+            strong intrest in quality assurance
+          </p>
           <div class="intro-banner__actions">
             <a href="#contact" class="intro-banner__button">Button</a>
             <a href="#resume" class="intro-banner__button">Button</a>
@@ -36,7 +49,10 @@
         <h2 class="projects__heading">Latest Projects</h2>
         <div class="projects__cards">
           <div class="projects__card">
-            <img src="img/Web-Application-Project-Ideas.jpg" alt="Frontend project 1" />
+            <img
+              src="img/Web-Application-Project-Ideas.jpg"
+              alt="Frontend project 1"
+            />
             <h3>Project Card</h3>
           </div>
           <div class="projects__card">
@@ -60,6 +76,30 @@
       </footer>
     </main>
 
-   
+    <script>
+      const burger = document.querySelector(".header__burger");
+      const nav = document.querySelector(".header__nav");
+      burger.addEventListener("click", function () {
+        nav.classList.toggle("header__nav--open");
+        burger.setAttribute(
+          "aria-expanded",
+          nav.classList.contains("header__nav--open")
+        );
+      });
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("header--shrink");
+        } else {
+          header.classList.remove("header--shrink");
+        }
+        const intro = document.querySelector(".intro-banner");
+        const rect = intro.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          intro.classList.add("intro-banner--visible");
+        }
+      });
+      window.dispatchEvent(new Event("scroll"));
+    </script>
   </body>
 </html>

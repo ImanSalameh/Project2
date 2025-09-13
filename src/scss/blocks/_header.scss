@@ -3,6 +3,9 @@
 @use "../utils/mixins" as m;
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,30 +13,68 @@
   background: v.$background-color;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   z-index: 100;
-  transition: height v.$transition-fast, background v.$transition-fast;
+  transition: height v.$transition-fast, background v.$transition-fast,
+    padding v.$transition-fast;
   height: 4rem;
+  padding: 0 2rem;
   @include m.respond("sm") {
     height: 3rem;
+    padding: 0 1rem;
   }
 
   &__logo {
-    float: left;
+    flex: 0 0 auto;
     height: 100%;
     display: flex;
     align-items: center;
     font-size: v.$font-size-lg;
     color: v.$primary-color;
     font-weight: bold;
+    margin-right: 2rem;
+  }
+
+  &__burger {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    @include m.respond("sm") {
+      display: flex;
+    }
+    span {
+      display: block;
+      width: 28px;
+      height: 4px;
+      margin: 4px 0;
+      background: v.$primary-color;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
   }
 
   &__nav {
-    float: right;
-    height: 100%;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     gap: 2rem;
+    justify-content: flex-end;
     @include m.respond("sm") {
-      gap: 1rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background: v.$background-color;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      gap: 0;
+      display: none;
+      &--open {
+        display: flex;
+      }
     }
   }
 
@@ -53,7 +94,15 @@
 
   &--shrink {
     height: 2.5rem;
+    padding: 0 1rem;
     background: v.$secondary-color;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    .header__logo {
+      font-size: v.$font-size-base;
+      margin-right: 1rem;
+    }
+    .header__nav {
+      gap: 1rem;
+    }
   }
 }

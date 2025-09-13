@@ -11,6 +11,9 @@
   justify-content: center;
   padding: 3rem 1rem;
   position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
   @include m.respond("sm") {
     flex-direction: column;
     min-height: 250px;
@@ -81,5 +84,10 @@
       color: v.$background-color;
       outline: none;
     }
+  }
+
+  &.intro-banner--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
