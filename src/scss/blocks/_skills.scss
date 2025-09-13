@@ -1,0 +1,18 @@
+@use "../utils/variables" as v;
+
+.skills {
+  padding: 2rem 1rem;
+  background: v.$background-color;
+  h2 {
+    color: v.$primary-color;
+    margin-bottom: 1rem;
+  }
+  ul {
+    list-style: disc inside;
+    color: v.$text-color;
+    font-size: v.$font-size-base;
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+}

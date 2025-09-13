@@ -1,0 +1,21 @@
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.footer {
+  width: 100%;
+  background: v.$primary-color;
+  color: v.$background-color;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: v.$font-size-sm;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+
+  &__copyright {
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}

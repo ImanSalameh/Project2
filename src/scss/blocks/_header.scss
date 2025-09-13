@@ -1,0 +1,59 @@
+// BEM Header Block
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: v.$background-color;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  transition: height v.$transition-fast, background v.$transition-fast;
+  height: 4rem;
+  @include m.respond("sm") {
+    height: 3rem;
+  }
+
+  &__logo {
+    float: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: v.$font-size-lg;
+    color: v.$primary-color;
+    font-weight: bold;
+  }
+
+  &__nav {
+    float: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    @include m.respond("sm") {
+      gap: 1rem;
+    }
+  }
+
+  &__link {
+    color: v.$text-color;
+    font-size: v.$font-size-base;
+    padding: 0.5rem 1rem;
+    border-radius: v.$border-radius;
+    transition: background v.$transition-fast, color v.$transition-fast;
+    &:hover,
+    &:focus {
+      background: v.$primary-color;
+      color: v.$background-color;
+      outline: none;
+    }
+  }
+
+  &--shrink {
+    height: 2.5rem;
+    background: v.$secondary-color;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+}

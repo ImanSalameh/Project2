@@ -1,0 +1,13 @@
+// Utils
+@use "utils/variables";
+@use "utils/mixins";
+@use "utils/utils";
+
+// Base
+@use "base/resets";
+@use "base/base";
+
+// Blocks
+@use "blocks/header";
+@use "blocks/footer";
+@use "blocks/blocks";

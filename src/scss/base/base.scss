@@ -1,0 +1,40 @@
+@use "../utils/variables" as variables;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: variables.$primary-color;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+  font-size: variables.$font-size-base;
+}
+
+a {
+  color: variables.$primary-color;
+  text-decoration: none;
+  transition: color variables.$transition-fast;
+  &:hover,
+  &:focus {
+    color: variables.$accent-color;
+    outline: none;
+  }
+}
+
+ul,
+ol {
+  margin-left: 2em;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #181818;
+    color: #f5f5f5;
+  }
+}

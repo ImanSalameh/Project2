@@ -1,0 +1,85 @@
+// BEM Intro Banner Block
+@use "../utils/variables" as v;
+@use "../utils/mixins" as m;
+
+.intro-banner {
+  width: 100%;
+  min-height: 350px;
+  background: url("../img/background.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  position: relative;
+  @include m.respond("sm") {
+    flex-direction: column;
+    min-height: 250px;
+    padding: 2rem 0.5rem;
+  }
+
+  &__profile {
+    flex: 0 0 150px;
+    margin-right: 2rem;
+    @include m.flex-center;
+    @include m.respond("sm") {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid v.$primary-color;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__bio {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 1.5rem;
+    border-radius: v.$border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    h1 {
+      font-size: v.$font-size-lg;
+      color: v.$primary-color;
+      margin-bottom: 0.5em;
+    }
+    p {
+      font-size: v.$font-size-base;
+      color: v.$text-color;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    @include m.respond("sm") {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  &__button {
+    background: v.$accent-color;
+    color: v.$background-color;
+    border: none;
+    border-radius: v.$border-radius;
+    padding: 0.75rem 2rem;
+    font-size: v.$font-size-base;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background v.$transition-fast, color v.$transition-fast;
+    text-align: center;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      background: v.$primary-color;
+      color: v.$background-color;
+      outline: none;
+    }
+  }
+}
