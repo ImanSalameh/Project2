@@ -10,16 +10,18 @@
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 1000;
   background: v.$background-color;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  z-index: 100;
   transition: height v.$transition-fast, background v.$transition-fast,
     padding v.$transition-fast;
   height: 4rem;
   padding: 0 2rem;
+  margin-bottom: 0;
   @include m.respond("sm") {
     height: 3rem;
     padding: 0 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__logo {
@@ -104,5 +106,12 @@
     .header__nav {
       gap: 1rem;
     }
+  }
+}
+
+.intro-banner {
+  margin-top: 4rem;
+  @include m.respond("sm") {
+    margin-top: 4.5rem;
   }
 }
